@@ -13,7 +13,7 @@ Some possible things to change and work on
 
 import tkinter as tk
 from matplotlib.pyplot import Figure
-from math_model import get_plot_data, get_peak
+from model_math import get_plot_data, get_peak
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk
 
 # TODO: Add a button that'll allow people to plot in either OD600 or cell density
