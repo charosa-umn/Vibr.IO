@@ -4,51 +4,59 @@ Created on Fri Oct 23 14:38:25 2020
 
 @author: David Wang
 """
-import matplotlib.pyplot as plt
 import numpy as np
+import matplotlib.pyplot as plt
+from scipy.integrate import odeint
 
-C = 1.520
-u = 0.117
-g = 1.966
 
-t = np.array(range(100))
+def f(y, t, params):
+    X, S = y      # unpack current values of y
+    umax, Ks, Yxs = params  # unpack parameters
+    derivs = [X*umax*S/(Ks+S),      # list of dy/dt=f functions
+             -X*umax*S/(Yxs*(Ks+S))]
+    return derivs
 
-input_choice = str(input('Type C to use (x10^6 cells)/mL, Type OD to use OD600:' + '\n' + '->'))
 
-while not (input_choice == 'OD' or input_choice == 'C'):
-    print('You did not input a valid response, please choose C or OD')
-    input_choice = str(input('Type C to use (x10^6 cells)/mL, Type OD to use OD600:' + '\n' + '->'))
+# Parameters
+umax = 0.43         # maximum growth rate
+Ks = 1.2       # half-velocity constant
+Yxs = 1.21     # yield coefficient for biomass/substrate
 
-if input_choice == 'OD':
-    yo = float(input('Enter Cell Density in OD600:' + '\n' + '->'))
+# Initial values
+X0 = 0.15     # initial cell concentration (od600)
+S0 = 1.2     # initial initial mass substrate (g)
 
-elif input_choice == 'C':
-    yo = float(input('Enter Cell Density in (x10^6 cells)/mL:' + '\n' + '->')) * 10 ** 6 / 1E8
+# Bundle parameters for ODE solver
+params = [umax, Ks, Yxs]
 
-y = yo + C / (1 + np.exp((4 * u / C) * (g - t) + 2))
+# Bundle initial conditions for ODE solver
+y0 = [X0, S0]
 
-if input_choice == 'C':
-    y = y * 1E8
+# Make time array for solution
+tStop = 28.
+tInc = 0.05
+t = np.arange(0., tStop, tInc)
 
-j = y[0]
-for i in y[1:-1]:
-    if (i - j) / j > 0.01:
-        j = i
-    else:
-        peak = j
-        break
+# Call the ODE solver
+psoln = odeint(f, y0, t, args=(params,))
 
-print('The peak concentration is ' + str(peak / 1E8) + ' x10^8 cells/ml')
-print(y[-1])
-plt.plot(t, y)
+# Plot results
+fig = plt.figure(1, figsize=(8,8))
 
-plt.title('Cell Density vs Time')
 
-plt.xlabel('Time (hrs)')
-plt.ylabel('Density (OD600)')
+# Plot X as a function of time
+ax1 = fig.add_subplot(311)
+ax1.plot(t, psoln[:,0])
+ax1.set_xlabel('Time (hrs)')
+ax1.set_ylabel('X (od600)')
 
-plt.grid(alpha=.4, linestyle='--')
 
-plt.savefig('test_model.png', bbox_inches='tight')
+# Plot S as a function of time
+ax2 = fig.add_subplot(312)
+ax2.plot(t, psoln[:,1])
+ax2.set_xlabel('Time (hrs)')
+ax2.set_ylabel('S (g)')
 
+
+plt.tight_layout()
 plt.show()

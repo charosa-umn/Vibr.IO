@@ -1,47 +1,43 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Nov 5th 10:38 pm 2020
-
-@author: Alessandro Snyder
-
-Based on David Wang's original command-line implementation in math_model.py
-This version breaks the graph generation into functions for model_UI.py to use
-"""
 import numpy as np
+import matplotlib.pyplot as plt
+from scipy.integrate import odeint
 
-C = 1.520
-u = 0.117
-g = 1.966
-
-
-def get_plot_data(yo, is_od600):
-    """
-    yo: The initial y value of the plot in either cells/mL or OD600
-    is_od600: A boolean tracking the units of yo
-    """
-    if not is_od600:
-        yo = (yo * 10 ** 6) / 1E8
-
-    t = np.array(range(100))
-    y = yo + C / (1 + np.exp((4 * u / C) * (g - t) + 2))
-
-    if not is_od600:
-        y = y * 1E8
-
-    return t, y
+"""Constants"""
+umax = 0.43         # maximum growth rate
+Ks = 1.2            # half-velocity constant
+Yxs = 1.21          # yield coefficient for biomass/substrate
 
 
-def get_peak(y):
-    j = y[0]
-    peak = 0
-    for i in y[1:-1]:
-        if (i - j) / j > 0.01:
-            j = i
-        else:
-            peak = j
-            break
+def f(y, t, params):
+    X, S = y      # unpack current values of y
+    umax, Ks, Yxs = params  # unpack parameters
+    derivs = [X*umax*S/(Ks+S),      # list of dy/dt=f functions
+             -X*umax*S/(Yxs*(Ks+S))]
 
-    return peak/1E8
+    return derivs
 
 
+def solve(X0, S0, tStop, tInc):
+    params = [umax, Ks, Yxs]
+    y0 = [X0, S0]
 
+    t = np.arange(0., tStop, tInc)
+
+    psoln = odeint(f, y0, t, args=(params,))
+    return t, psoln
+
+    # # Plot X as a function of time
+    # fig = plt.figure(1, figsize=(8, 8))
+    # ax1 = fig.add_subplot(311)
+    # ax1.plot(t, psoln[:, 0])
+    # ax1.set_xlabel('Time (hrs)')
+    # ax1.set_ylabel('X (od600)')
+    #
+    # # Plot S as a function of time
+    # ax2 = fig.add_subplot(312)
+    # ax2.plot(t, psoln[:, 1])
+    # ax2.set_xlabel('Time (hrs)')
+    # ax2.set_ylabel('S (g)')
+    #
+    # plt.tight_layout()
+    # plt.show()
