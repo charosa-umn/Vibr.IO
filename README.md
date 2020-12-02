@@ -1,5 +1,5 @@
 # BioLumenModeling
-Cell growth modeling of Vibrio fischeri, corollary to the BioLumen Reactor project at the University of Minnesota
+Cell growth modeling of Vibrio fischeri, developed by Charosa Research Incubator, a student group at the University of Minnesota - Twin Cities
 
 ## Notable Changes
     * "math_model.py" was renamed to "math_model_cmd.py"
