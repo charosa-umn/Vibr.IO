@@ -1,5 +1,5 @@
-# BioLumenModeling
-Cell growth modeling of Vibrio fischeri, developed by Charosa Research Incubator, a student group at the University of Minnesota - Twin Cities
+# Vibr.IO
+Vibr.IO is a program to model cell growth of Vibrio fischeri, developed by Charosa Research Incubator, a student group at the University of Minnesota - Twin Cities
 
 ## Notable Changes
     * "math_model.py" was renamed to "math_model_cmd.py"
