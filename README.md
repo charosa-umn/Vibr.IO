@@ -26,5 +26,6 @@ A helper module that model_page uses to help model growth. Basically, all of the
 ### math_model_cmd.py
 A commandline interface that allows you to plot Vibrio fischeri growth.
 
-
+## Contact
+For any direct questions or comments, email charosa@umn.edu.
 
