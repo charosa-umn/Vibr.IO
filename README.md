@@ -24,7 +24,7 @@ Code for the page that allows you to model Vibrio fischeri growth.
 A helper module that model_page uses to help model growth. Basically, all of the math is computed in this file.
 
 ### math_model_cmd.py
-A commandline interface that allows you to plot Vibrio fischeri growth.
+A command line interface that allows you to plot Vibrio fischeri growth.
 
 ## Contact
 For any direct questions or comments, email charosa@umn.edu.
