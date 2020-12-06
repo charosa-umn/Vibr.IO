@@ -17,15 +17,17 @@ In addition to modeling cell growth and substrate change with time, the cell gro
 
 ## Model Theory
 The model represents cell growth in culture as a batch process described by Monod growth kinetics. For the model, NaCl was considered the limiting substrate for cell growth. The growth constants umax, Ks, and Yxs were fit from experimental data of *Vibrio fischeri* growth in medium containing yeast extract, tryptone, and NaCl (**Castillo-Gomez et al. 2019**). The fit values were: **umax** = 0.43 hr^-1, **Ks** = 1.2 g/L, **Yxs** = 1.21. 
+
 Peak cell density was approximated as the point where the cell population grew by less than 0.01% versus the previous timestep. 
+
 Cell death was approximated by first-order kinetics, with a death constant of **Kd** = 0.43 hr^-1. This value from the literature describes the death rate of *E. coli* in culture, and was used as a first approximation to estimate the death rate of *V. fischeri* (**Schink et al. 2019**).
 
 ## Built With
 * [Python 3](https://www.python.org/downloads/) - The primary programming language used
 * [Tkinter](https://docs.python.org/3/library/tkinter.html) - The GUI framework used
-* [NumPy](https://numpy.org/)Numpy - Used to aide in computation
-* [Matplotlib](https://matplotlib.org/) - Used for plotting and displaying cell growth as graphs in the app
-* [Scipy.integrate](https://docs.scipy.org/doc/scipy/reference/integrate.html) - Used for mathematical calculations
+* [NumPy](https://numpy.org/) - Used to aide in model computation
+* [Matplotlib](https://matplotlib.org/) - Used for plotting and displaying cell growth 
+* [Scipy.integrate](https://docs.scipy.org/doc/scipy/reference/integrate.html) - Used for model ODE integration
 * [PyInstaller](https://pypi.org/project/PyInstaller/)  - Used to package the code as an executable 
 
 ## Contributors
