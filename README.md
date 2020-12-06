@@ -9,11 +9,11 @@ Both Windows and macOS are supported.
 
 ## Program Capabilities 
 **Vibr.IO** offers a clean and easy-to-use UI for modeling cell growth of Vibrio fischeri. Users can specify the initial cell concentration in either OD600 or (x10^6 cells)/mL. The program allows graphs to be displayed in either unit of measure. Users can also specify the simulation duration in hours and can customize the time increment of the model. In addition to modeling cell growth over time, there is also a supplemental plot on the right which models the change in substrate over time.
-![](https://user-images.githubusercontent.com/46146906/101276862-91b21300-3775-11eb-86bf-dba46f17403f.png)
+![](https://user-images.githubusercontent.com/46146906/101292658-8ba04e80-37d6-11eb-99b8-863fcb0af43f.png)
 
 
 In addition to modeling cell growth and substrate change with time, the cell growth plot also labels the point of peak cell density with a red indicator and provides users with the predicted peak time and peak cell density. Each peak is followed by an estimated death curve to provide users an indication of the rate of cell death. **Vibr.IO** also allows users to take advantage of convenient features from **matplotlib**, such as saving figures, zooming into figures, panning, etc. These capabilities are accessible from the horizontal toolbar beneath the two plots.
-![](https://user-images.githubusercontent.com/46146906/101277025-fb7eec80-3776-11eb-8b76-bf369e0174b9.png)
+![](https://user-images.githubusercontent.com/46146906/101292660-8d6a1200-37d6-11eb-8d06-7658b328d384.png)
 
 ## Model Theory
 The model represents cell growth in culture as a batch process described by Monod growth kinetics. For the model, NaCl was considered the limiting substrate for cell growth. The growth constants umax, Ks, and Yxs were fit from experimental data of *Vibrio fischeri* growth in medium containing yeast extract, tryptone, and NaCl [**Castillo-Gomez et al. 2019**](https://doi.org/10.1002/bio.3683). The fit values were: **umax** = 0.43 hr^-1, **Ks** = 1.2 g/L, **Yxs** = 1.21. 
