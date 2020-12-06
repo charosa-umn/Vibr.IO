@@ -1,30 +1,29 @@
 # Vibr.IO
-Vibr.IO is a program to model cell growth of Vibrio fischeri, developed by Charosa Research Incubator, a student group at the University of Minnesota - Twin Cities
+Vibr.IO is a program to model cell growth of Vibrio fischeri, developed by Charosa Research Incubator, a student group at the University of Minnesota - Twin Cities. 
+Below are installation instructions as well as specific capabilities of the application.
 
-## Notable Changes
-    * "math_model.py" was renamed to "math_model_cmd.py"
-    * "my_math_model.py" was renamed to "math_model.py"
-    * Can now switch between pages
-    * Added start_page.py and main.py to the repository
-    
-    math_model_cmd.py will refer to the command line interface for modeling Vibrio fischeri growth and math_model.py will
-    be a math plotting module used by the other files in the project. 
+## Installion and Use
+The application can be used by downloading the release [here.](google.com) Once downloaded, simply double clicking the excutable file named "vibr.IO.exe" will start up the application. You can create a desktop shortcut by right-clicking and selecting "create shortcut" if desired.
 
-## File Guide 
-### main.py
-Run this file to run the application. This'll be the main file that ties all of the other files together.
+Supported platforms are Windows...?
 
-### start_page.py
-Code for the start page of the application.
+## Program Capabilities 
 
-### model_page.py
-Code for the page that allows you to model Vibrio fischeri growth.
+## Built With
+* [Python 3](https://www.python.org/downloads/) - The primary programming language used
+* [Tkinter](https://docs.python.org/3/library/tkinter.html) - The GUI framework used
+* [NumPy](https://numpy.org/)Numpy - Used to aide in computation
+* [Matplotlib](https://matplotlib.org/) - Used for plotting and displaying cell growth as graphs in the app
+* [Scipy.integrate](https://docs.scipy.org/doc/scipy/reference/integrate.html) - Used for mathematical calculations
+* [PyInstaller](https://pypi.org/project/PyInstaller/)  - Used to package the code as an executable 
 
-### math_model.py
-A helper module that model_page uses to help model growth. Basically, all of the math is computed in this file.
+## Contributors
+* David Wang
+* Alessandro Snyder
+* Gaurav Behera 
 
-### math_model_cmd.py
-A command line interface that allows you to plot Vibrio fischeri growth.
+## Acknowledgements
+A thanks to Y. Luna Lin from Hardvard for Vibrio Fischeri modeling advice.
 
 ## Contact
 For any direct questions or comments, email charosa@umn.edu.
