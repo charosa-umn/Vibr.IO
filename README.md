@@ -36,7 +36,7 @@ Cell death was approximated by first-order kinetics, with a death constant of **
 * Gaurav Behera 
 
 ## Acknowledgements
-Thank you to Y. Luna Lin of Harvard University for their *Vibrio fischeri* modeling advice.
+Thank you to [Y. Luna Lin](https://ylunalin.com/) of Harvard University for their *Vibrio fischeri* modeling advice.
 
 ## Contact
 For any direct questions or comments, email charosa@umn.edu.
