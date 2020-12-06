@@ -2,6 +2,7 @@
 File that mainly handles the math behind the cell growth modeling for vibrio fischeri
 Utilizes code written in parameter_monod_code.m
 """
+
 import numpy as np
 from scipy.integrate import odeint
 
@@ -98,11 +99,13 @@ def f_d(X, t, Kd):
     return -Kd*X
 
 
+# TODO: Fix generate death so that it goes by tInc instead of just by 1; breaks otherwise, not a huge issue
 def generate_death(peak, tInc, tStop):
     X0 = peak  # initial cell concentration (od600
 
     # Make time array for solution
-    t_d = np.arange(0., tStop, tInc)
+    t_d = np.arange(0., tStop, 1)
+    # t_d = np.arange(0., tStop, tInc)
 
     # Call the ODE solver
     psoln_d = odeint(f_d, X0, t_d, args=(Kd,))

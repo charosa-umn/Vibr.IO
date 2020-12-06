@@ -1,6 +1,7 @@
 """
 Main modeling page of the app.
 """
+# TODO Make font bigger
 
 import tkinter as tk
 from tkinter import ttk
@@ -19,6 +20,7 @@ STEP = 0.5          # Start at MIN_INT_TIME and increment by STEP until MAX_INT_
 SPACING_BETWEEN_WIDGETS = (0, 10)
 SPACING_BETWEEN_GROUPS = (0, 30)  # Spacing between widget groups under the input frame
 
+od600 = 'OD\u2086\u2080\u2080'
 
 class ModelPage(tk.Frame):
     def __init__(self, parent, controller):
@@ -51,7 +53,7 @@ class ModelPage(tk.Frame):
 
         self.c_btn = tk.Radiobutton(
             self.input_frame,
-            text="Enter Cell Density in (x10^6 cells)/mL:",
+            text="Enter cell density in (x10\u2076 cells)/mL:",
             variable=self.is_od600,
             value="False",
             command=lambda: self.toggle_entry())
@@ -62,7 +64,7 @@ class ModelPage(tk.Frame):
 
         self.od_btn = tk.Radiobutton(
             self.input_frame,
-            text="Enter Cell Density in OD600:",
+            text=f"Enter cell density in {od600}:",
             variable=self.is_od600,
             value="True",
             command=lambda: self.toggle_entry())
@@ -122,14 +124,14 @@ class ModelPage(tk.Frame):
 
         tk.Radiobutton(
             self.input_frame,
-            text="Plot in Nominal Cell Density",
+            text="Plot in nominal cell density",
             variable=self.graph_units_is_od600,
             value="False"
         ).grid(row=10, column=0, sticky="w")
 
         tk.Radiobutton(
             self.input_frame,
-            text="Plot in od600",
+            text=f"Plot in {od600}",
             variable=self.graph_units_is_od600,
             value="True"
         ).grid(row=11, column=0, pady=SPACING_BETWEEN_GROUPS, sticky="w")
@@ -195,9 +197,9 @@ class ModelPage(tk.Frame):
         plt2 = fig.add_subplot(122)  # create subplot for substrate vs time
 
         if self.graph_units_is_od600.get() == "True":
-            units = "Cell Density in od600"  # change y-axis label if user wants to graph in od600
+            units = f"Cell Density in {od600}"  # change y-axis label if user wants to graph in od600
         else:
-            units = "Cell Density in (x10^6 cells)/mL"  # y-axis label for first plot
+            units = "Cell Density in (x10\u2076 cells)/mL"  # y-axis label for first plot
 
         # Set labels and titles for the two plots
         plt1.set_title("Cell Density vs. Time")
@@ -229,7 +231,6 @@ class ModelPage(tk.Frame):
 
     def plot_data(self, plt1, plt2, cell_conc, substrate, t_stop, t_inc):
         t, psoln = generate_growth(cell_conc, substrate, t_stop, t_inc)  # grab times and growth data
-
         cell_data = psoln[:, 0]  # grab cell growth data
         substr_data = psoln[:, 1]  # grab substrate data
 
@@ -248,9 +249,9 @@ class ModelPage(tk.Frame):
 
             if self.graph_units_is_od600.get() == "False":
                 psoln_d[:, 0] = list(map(lambda x: convert_cell_density(x, False), psoln_d[:, 0]))
-                units = "x10^6 cells/mL"
+                units = "x10\u2076 cells/mL"
             else:
-                units = 'od600'
+                units = od600
 
             plt1.plot(t[:peak_i+1], cell_data[:peak_i+1])  # plot cell growth data up until peak
             plt1.plot(t[peak_i], cell_data[peak_i], marker='o', color='red')  # plot peak point

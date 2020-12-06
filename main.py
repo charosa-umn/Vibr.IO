@@ -9,6 +9,10 @@ from model_page import ModelPage
 from start_page import StartPage
 from about_us_page import AboutUsPage
 
+# z library
+# b/ok.cc
+# umn libraries
+
 WINDOW_SIZE = "1366x768"
 ICON_FILE = 'vibrio icon_rounded.ico'
 
