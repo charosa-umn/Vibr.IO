@@ -16,11 +16,11 @@ In addition to modeling cell growth and substrate change with time, the cell gro
 ![](https://user-images.githubusercontent.com/46146906/101292660-8d6a1200-37d6-11eb-8d06-7658b328d384.png)
 
 ## Model Theory
-The model represents cell growth in culture as a batch process described by Monod growth kinetics. For the model, NaCl was considered the limiting substrate for cell growth. The growth constants umax, Ks, and Yxs were fit from experimental data of *Vibrio fischeri* growth in medium containing yeast extract, tryptone, and NaCl [**Castillo-Gomez et al. 2019**](https://doi.org/10.1002/bio.3683). The fit values were: **umax** = 0.43 hr^-1, **Ks** = 1.2 g/L, **Yxs** = 1.21. 
+The model represents cell growth in culture as a batch process described by Monod growth kinetics. For the model, NaCl was considered the limiting substrate for cell growth. The growth constants umax, Ks, and Yxs were fit from experimental data of *Vibrio fischeri* growth in medium containing yeast extract, tryptone, and NaCl ([**Castillo-Gomez et al. 2019**](https://doi.org/10.1002/bio.3683)). The fit values were: **umax** = 0.43 hr^-1, **Ks** = 1.2 g/L, **Yxs** = 1.21. 
 
 Peak cell density was approximated as the point where the cell population grew by less than 0.01% versus the previous timestep. 
 
-Cell death was approximated by first-order kinetics, with a death constant of **Kd** = 0.43 hr^-1. This value from the literature describes the death rate of *E. coli* in culture, and was used as a first approximation to estimate the death rate of *V. fischeri* [**Schink et al. 2019**](https://doi.org/10.1016/j.cels.2019.06.003).
+Cell death was approximated by first-order kinetics, with a death constant of **Kd** = 0.43 hr^-1. This value from the literature describes the death rate of *E. coli* in culture, and was used as a first approximation to estimate the death rate of *V. fischeri* ([**Schink et al. 2019**](https://doi.org/10.1016/j.cels.2019.06.003)).
 
 ## Built With
 * [Python 3](https://www.python.org/downloads/) - The primary programming language used
