@@ -155,7 +155,7 @@ class ModelPage(tk.Frame):
         tk.Button(
             self.input_frame,
             text="Exit",
-            command=lambda: exit(),
+            command=lambda: self.controller.destroy(),
             width=20
         ).grid(row=13, column=1, sticky="e")
 

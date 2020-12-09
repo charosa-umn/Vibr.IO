@@ -19,7 +19,7 @@ class StartPage(tk.Frame):
         btn2.pack(pady=50)
         btn2.config(height=h, width=w)
 
-        btn3 = tk.Button(self, text='Exit', command=lambda: exit())
+        btn3 = tk.Button(self, text='Exit', command=lambda: self.controller.destroy())
         btn3.pack(pady=50)
         btn3.config(height=h, width=w)
 

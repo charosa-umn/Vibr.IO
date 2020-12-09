@@ -9,12 +9,14 @@ from model_page import ModelPage
 from start_page import StartPage
 from about_us_page import AboutUsPage
 
-# z library
-# b/ok.cc
-# umn libraries
-
+import sys, os 
+def resource_path(relative_path):
+    if hasattr(sys, '_MEIPASS'):
+        return os.path.join(sys._MEIPASS, relative_path)
+    return os.path.join(os.path.abspath("."), relative_path)
+    
 WINDOW_SIZE = "1366x768"
-ICON_FILE = 'vibrio icon_rounded.ico'
+ICON_FILE = resource_path("vibrio_icon_rounded.ico")
 
 
 class Main(tk.Tk):
