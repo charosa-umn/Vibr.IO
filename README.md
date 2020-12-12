@@ -3,11 +3,28 @@ Vibr.IO is an open-source program to model the cell growth of *Vibrio fischeri* 
 Both Windows and macOS are supported.
 Read on for installation instructions as well as specific capabilities of the application.
 
-## To Install on Windows
-Download **Vibr.IO_Windows_v1.0.0.zip**, unzip the directory, and open **Vibr.IO.exe** to run the application. You can create a desktop shortcut by right-clicking and selecting "create shortcut" if desired.
+## Build from Source (PyInstaller)
+Download the source code from the latest **[release](https://github.com/charosa-umn/Vibr.IO/archive/1.0.0.zip)**. Ensure that the required dependences are installed to your local Python installation (see **Built With** section).
+### Build on Windows
+From the command line, navigate to the source code folder and run the following command: 
 
-## To Install on macOS
-Download **Vibr.IO_macOS_v1.0.0.zip**, unzip the directory, and open **Vibr.IO.app** to run the application.
+`pyinstaller --windowed --icon="vibrio_icon_rounded.ico" --add-data vibrio_icon_rounded.ico;. main.py`
+
+Then open **main.exe** from the generated **/dist** folder in the source code directory.
+
+### Build on macOS
+From the command line, navigate to the source code folder and run the following command: 
+
+`pyinstaller --windowed --icon="vibrio_icon_rounded.icns" --add-data vibrio_icon_rounded.icns:. main.py`
+
+Then open **main.app** from the generated **/dist** folder in the source code directory.
+
+## Install
+### Install on Windows
+Download **[Vibr.IO_Windows_v1.0.0.zip](https://github.com/charosa-umn/Vibr.IO/releases/download/1.0.0/Vibr.IO_Windows_v1.0.0.zip)**, unzip the directory, and open **Vibr.IO.exe** to run the application. You can create a desktop shortcut by right-clicking and selecting "create shortcut" if desired.
+
+### Install on macOS
+Download **[Vibr.IO_macOS_v1.0.0.zip](https://github.com/charosa-umn/Vibr.IO/releases/download/1.0.0/Vibr.IO_macOS_v1.0.0.zip)**, unzip the directory, and open **Vibr.IO.app** to run the application.
 
 
 ## Program Capabilities 
