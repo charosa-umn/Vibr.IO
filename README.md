@@ -24,7 +24,7 @@ Open **main.app** from the generated **/dist** folder in the source code directo
 Download **[Vibr.IO_Windows_v1.0.0.zip](https://github.com/charosa-umn/Vibr.IO/releases/download/1.0.0/Vibr.IO_Windows_v1.0.0.zip)**, unzip the directory, and open **Vibr.IO.exe** to run the application. You can create a desktop shortcut by right-clicking and selecting "create shortcut" if desired.
 
 ### Install on macOS
-Download **[Vibr.IO_macOS_v1.0.0.zip](https://github.com/charosa-umn/Vibr.IO/releases/download/1.0.0/Vibr.IO_macOS_v1.0.0.zip)**, unzip the directory, and open **Vibr.IO.app** to run the application. Note that macOS will likely prompt that **Vibr.IO** is an unregistered application, see **[here](https://support.apple.com/guide/mac-help/open-a-mac-app-from-an-unidentified-developer-mh40616/mac)** for instructions on how to force-run **Vibr.IO**.
+Download **[Vibr.IO_macOS_v1.0.0.zip](https://github.com/charosa-umn/Vibr.IO/releases/download/1.0.0/Vibr.IO_macOS_v1.0.0.zip)**, unzip the directory, and open **Vibr.IO.app** to run the application. Note that macOS will likely prompt that **Vibr.IO** is an unregistered application, see **[here](https://support.apple.com/guide/mac-help/open-a-mac-app-from-an-unidentified-developer-mh40616/mac)** for instructions on opening unregistered apps.
 
 
 ## Program Capabilities 
