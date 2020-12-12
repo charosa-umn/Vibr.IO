@@ -10,13 +10,15 @@ from start_page import StartPage
 from about_us_page import AboutUsPage
 
 import sys, os 
+import platform
+
 def resource_path(relative_path):
     if hasattr(sys, '_MEIPASS'):
         return os.path.join(sys._MEIPASS, relative_path)
     return os.path.join(os.path.abspath("."), relative_path)
     
 WINDOW_SIZE = "1366x768"
-ICON_FILE = resource_path("vibrio_icon_rounded.ico")
+# ICON_FILE = resource_path("vibrio_icon_rounded.ico")
 
 
 class Main(tk.Tk):
@@ -54,5 +56,11 @@ class Main(tk.Tk):
 
 
 if __name__ == "__main__":
+    plt = platform.system()
+    if plt == "Darwin":
+        ICON_FILE = resource_path("vibrio_icon_rounded.icns")
+    else:
+        ICON_FILE = resource_path("vibrio_icon_rounded.ico")
+
     root = Main()
     root.mainloop()
