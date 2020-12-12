@@ -1,11 +1,14 @@
 # Vibr.IO
 Vibr.IO is an open-source program to model the cell growth of *Vibrio fischeri* in culture, developed by Charosa Research Incubator, a student group at the University of Minnesota - Twin Cities. 
+Both Windows and macOS are supported.
 Read on for installation instructions as well as specific capabilities of the application.
 
-## Installation and Use
-Download the latest release of **Vibr.IO** [here.](google.com) Once downloaded, extract the .zip file and double-click the excutable file "Vibr.IO.exe" to start-up the application. You can create a desktop shortcut by right-clicking and selecting "create shortcut" if desired.
+## To Install on Windows
+Download **Vibr.IO_Windows_v1.0.0.zip**, unzip the directory, and open **Vibr.IO.exe** to run the application. You can create a desktop shortcut by right-clicking and selecting "create shortcut" if desired.
 
-Both Windows and macOS are supported.
+## To Install on macOS
+Download **Vibr.IO_macOS_v1.0.0.zip**, unzip the directory, and open **Vibr.IO.app** to run the application.
+
 
 ## Program Capabilities 
 **Vibr.IO** offers a clean and easy-to-use UI for modeling cell growth of Vibrio fischeri. Users can specify the initial cell concentration in either OD600 or (x10^6 cells)/mL. The program allows graphs to be displayed in either unit of measure. Users can also specify the simulation duration in hours and can customize the time increment of the model. In addition to modeling cell growth over time, there is also a supplemental plot on the right which models the change in substrate over time.
